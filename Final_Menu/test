@@ -1,0 +1,407 @@
+<!--
+<script>
+
+
+/*
+
+
+var submenus = $('#menu ul ul');
+var promo = $('#promo');
+var timeout;
+
+// Add event listener to each submenu item
+submenus.hover(function() {
+  var self = $(this);
+  clearTimeout(timeout);
+
+  // Show the promo column
+  self.parent().append(promo.removeClass('promo-hidden'));
+  var position = self.position().left + self.outerWidth();
+  promo.css({ left: position });
+
+  timeout = setTimeout(function() {
+    // Show the promo column
+    promo.removeClass('promo-hidden');
+    position = self.position().left + self.outerWidth() + promo.outerWidth();
+    promo.css({ left: position });
+  }, 300); // 300 milliseconds delay
+}, function() {
+  // Hide the promo column
+  clearTimeout(timeout);
+  promo.addClass('promo-hidden').appendTo($('#main'));
+});
+*/
+
+/*
+var submenus = $('#menu ul ul');
+var promo = $('#promo');
+var timeout;
+
+// Add event listener to each submenu item
+submenus.hover(function() {
+  var self = $(this);
+  clearTimeout(timeout);
+
+  timeout = setTimeout(function() {
+    // Show the promo column
+    var parent = self.parent();
+    parent.append(promo.removeClass('promo-hidden'));
+    var position = parent.position().left + parent.outerWidth() + 200; // 10px gap between submenu and promo
+    promo.css({ left: position });
+  }, 300); // 300 milliseconds delay
+}, function() {
+  // Hide the promo column
+  clearTimeout(timeout);
+  promo.addClass('promo-hidden').appendTo($('#main'));
+});
+*/
+
+/*
+
+
+
+
+/*
+var submenus = $('#menu ul ul');
+var promo = $('#promo');
+
+// Add event listener to each submenu item
+submenus.hover(function() {
+  // Show the promo column
+  $(this).parent().append(promo.removeClass('promo-hidden'));
+  var position = $(this).position().left + $(this).outerWidth() + promo.outerWidth();
+  promo.css({left: position, transition: 'left 0.3s ease-in-out'});
+}, function() {
+  // Hide the promo column
+  promo.addClass('promo-hidden');
+  promo.css({transition: 'none'});
+});
+
+*/
+
+
+
+
+/* add delay //
+will delay the submenu display by 200ms when the menu item is hovered over*/
+
+// Add event listener to each main menu item
+
+
+
+
+/*
+
+
+
+$(this).hover(function() {
+    var $this = $(this);
+    $this.find('ul').stop(true, true).delay(2000).slideDown();
+  }, function() {
+    $(this).find('ul').stop(true, true).slideUp();
+  });
+*//*
+
+// Add event listener to each main menu item
+$('#menu > ul > li').hover(function() {
+  // Show the submenu and promo column
+  $(this).find('ul').show();
+  $('#promo').removeClass('promo-hidden');
+
+  // Add delay before opening submenu
+  var currentLi = $(this);
+  currentLi.data('timeout', setTimeout(function() {
+    currentLi.find('ul').addClass('open');
+  }, 500));
+}, function() {
+  // Hide the submenu and promo column
+  $(this).find('ul').hide();
+  $('#promo').addClass('promo-hidden');
+
+  // Remove delay if mouse leaves before timeout
+  clearTimeout($(this).data('timeout'));
+});
+
+// Add event listener to each submenu item
+$('#menu ul ul').hover(function() {
+  // Show the promo column
+  $('#promo').removeClass('promo-hidden');
+}, function() {
+  // Hide the promo column
+  $('#promo').addClass('promo-hidden');
+});
+
+// Add event listener to the main nav bar
+$('#menu').hover(function() {}, function() {
+  // Hide the submenu and promo column
+  $('#menu ul ul').hide().removeClass('open');
+  $('#promo').addClass('promo-hidden');
+});
+
+
+
+
+ /*   
+$(document).ready(function() {
+  var timeout;
+  $('ul.navbar-nav > li').hover(
+    function() {
+      clearTimeout(timeout);
+      $(this).addClass('active');
+      $(this).children('ul').fadeIn(200);
+    },
+    function() {
+      var $submenu = $(this).children('ul');
+      timeout = setTimeout(function() {
+        $submenu.fadeOut(200);
+        $(this).removeClass('active');
+      }, 500);
+    }
+  );
+  
+  $('ul.navbar-nav > li > ul > li').hover(
+    function() {
+      clearTimeout(timeout);
+      $(this).addClass('active');
+      $(this).children('ul').fadeIn(200);
+    },
+    function() {
+      var $submenu = $(this).children('ul');
+      timeout = setTimeout(function() {
+        $submenu.fadeOut(200);
+        $(this).removeClass('active');
+      }, 500);
+    }
+  );
+});
+
+
+
+/*promo column push right*//*
+var submenus = $('#menu ul ul');
+var promo = $('#promo');
+
+// Add event listener to each submenu item
+submenus.hover(function() {
+  // Show the promo column
+  $(this).parent().append(promo.removeClass('promo-hidden'));
+  var position = $(this).position().left + $(this).outerWidth() + promo.outerWidth();
+  promo.css({left: position});
+}, function() {
+  // Hide the promo column
+  promo.addClass('promo-hidden');
+});
+
+
+
+
+
+
+
+
+
+
+/*
+var submenus = $('#menu ul ul');
+var shopAll = $('#menu > ul > li:first-child');
+
+// Add event listener to each submenu item
+submenus.hover(function() {
+  // Show the promo column
+  $(this).parent().parent().parent().append($('#promo').removeClass('promo-hidden'));
+}, function() {
+  // Hide the promo column
+  $('#promo').addClass('promo-hidden');
+}); 
+
+// Add event listener for the "shop all" menu item
+shopAll.hover(function() {
+  // Show both columns
+  $('#submenu1').removeClass('submenu-hidden');
+  $('#submenu2').removeClass('submenu-hidden');
+  $('#promo').removeClass('promo-hidden');
+}, function() {
+  // Hide both columns
+  $('#submenu1').addClass('submenu-hidden');
+  $('#submenu2').addClass('submenu-hidden');
+  $('#promo').addClass('promo-hidden');
+});
+/*
+var submenus = $('#menu ul ul');
+var promo = $('#promo');
+
+// Add event listener to each submenu item
+submenus.hover(function() {
+  // Show the promo column
+  $(this).parent().append(promo.removeClass('promo-hidden'));
+  var position = $(this).position().left + $(this).outerWidth() + promo.outerWidth();
+  promo.css({left: position});
+}, function() {
+  // Hide the promo column
+  promo.addClass('promo-hidden');
+});
+*/
+
+
+
+/*
+This function is used to delay the showing and hiding of the submenu by the showDelay and hideDelay durations, respectively. 
+When the cursor moves outside of the menu column, the mouseleave() function is used to detect the event, and the setTimeout() function is used to delay the hiding of the submenu. 
+The clearTimeout() function is used to clear the previously set timeout before setting a new one, to prevent multiple timeouts from firing.
+*//*
+
+$(document).ready(function(){
+  // Add a delay before showing the submenu
+  var showDelay = 200;
+  var hideDelay = 200;
+
+  // Show the submenu on mouseover
+  $('.menu > li').mouseover(function(){
+    var $submenu = $(this).find('.submenu');
+    clearTimeout($submenu.data('timeoutId'));
+    $submenu.data('timeoutId', setTimeout(function(){
+      $submenu.show();
+    }, showDelay));
+  });
+
+  // Hide the submenu on mouseout
+  $('.menu > li').mouseout(function(){
+    var $submenu = $(this).find('.submenu');
+    clearTimeout($submenu.data('timeoutId'));
+    $submenu.data('timeoutId', setTimeout(function(){
+      $submenu.hide();
+    }, hideDelay));
+  });
+
+  // Hide the submenu when the cursor moves outside of the menu column
+  $('.menu .submenu').mouseleave(function(){
+    var $submenu = $(this);
+    clearTimeout($submenu.data('timeoutId'));
+    $submenu.data('timeoutId', setTimeout(function(){
+      $submenu.hide();
+    }, hideDelay));
+  });
+}); 
+
+
+
+
+/*
+var timeout;
+
+submenus.hover(function() {
+  var submenu = $(this).find('ul');
+  
+  // Set a delay of 500 milliseconds before showing the submenu
+  timeout = setTimeout(function() {
+    submenu.addClass('hover');
+  }, 5000);
+}, function() {
+  var submenu = $(this).find('ul');
+  
+  // Clear the timeout if the cursor leaves the menu item before the delay is over
+  clearTimeout(timeout);
+  
+  // Hide the submenu
+  submenu.removeClass('hover');
+});
+
+
+let delayTimer;
+
+function handleMouseMove(event) {
+  clearTimeout(delayTimer);
+  delayTimer = setTimeout(function() {
+    // Your code here that should execute when the cursor stops moving
+  }, 500); // Set the delay time in milliseconds (in this example, 500ms or half a second)
+}
+
+document.addEventListener('mousemove', handleMouseMove);
+
+*/
+
+
+
+
+*/
+</script>
+-->
+
+<style>
+  /* 
+
+.wrapper {
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "img content";
+  margin-bottom: 1em;
+    
+ 
+}
+.wrapper .image{
+  float: right;
+  width: 150px;
+  margin-right: 20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 
+      #menu ul ul li {
+        float: none;
+        width: 200px;
+        padding: 5px 10px;
+        min-height: max-content;
+        flex-grow: 1;
+      }
+      #menu ul ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        padding: 7px 0px;
+        align-items: stretch;
+      }
+      
+      #menu ul ul li.title {
+        font-weight: bold;
+      }
+      
+
+
+
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat(1, 2px);
+  gap: 1px;
+  grid-auto-flow: column;
+  grid-auto-columns: 100px 10px;
+}
+.grid-item {
+  position: relative;
+  grid-column: span 1;
+  grid-row: span 1;
+}
+  /* 
+#menu ul ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+     padding: 7px 0px;
+     align-items: stretch;
+}
+/*
+#promo { 
+    border-style: solid;
+    border-width: 0.2px 0.2 0.2px 0.2px;
+    
+   
+
+.promo-hidden {
+  display: none;
+}
+}*/
+</style>
